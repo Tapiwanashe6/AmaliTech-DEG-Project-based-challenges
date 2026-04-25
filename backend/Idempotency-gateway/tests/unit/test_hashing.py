@@ -1,5 +1,3 @@
-"""Unit tests for the canonical body hasher."""
-
 from app.hashing import canonicalize, hash_body
 
 

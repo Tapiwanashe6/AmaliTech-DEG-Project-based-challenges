@@ -1,5 +1,3 @@
-"""End-to-end integration tests."""
-
 from __future__ import annotations
 
 import asyncio
@@ -115,7 +113,7 @@ async def test_concurrent_duplicates_run_handler_once(client):
 
 @pytest.mark.asyncio
 async def test_key_order_insensitive_body_matching(client):
-    """{amount, currency} and {currency, amount} must NOT be a conflict."""
+    # same body, different key order — should not trigger a conflict
     headers = {"Idempotency-Key": "k-order"}
     r1 = await client.post("/process-payment", headers=headers,
                            json={"amount": 2, "currency": "USD"})
